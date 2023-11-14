@@ -1,0 +1,14 @@
+[Unit]
+Description=First boot filesystem setup
+DefaultDependencies=no
+Before=sailfish-device-encryption-community-wizard.service
+After=systemd-udev-settle.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/droid/first-boot-fs.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=late-mount-pre.target
+RequiredBy=sailfish-device-encryption-community-wizard.service

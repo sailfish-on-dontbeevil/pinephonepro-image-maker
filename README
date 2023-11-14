@@ -1,0 +1,11 @@
+Pinephone Pro Image Builder
+===========================
+
+This repo contains a script and files to create an EMMC image of SailfishOS for the PinephonePro
+
+Copy the file sfe-pinephonepro-XXXXXX.tar.bz2 obtained from the CI build https://gitlab.com/sailfishos-porters-ci/dont_be_evil-ci/-/pipelines
+into the folder and run make_release.sh.
+
+The script will create a 3GB image with boot and root partition, and extract the filesystem into it.  U-Boot will be written and the files in the ./overlay/ folder are added to the image.
+
+The overlay files create a servive that resizes the root filesystem on first boot, and creates a home partition.
