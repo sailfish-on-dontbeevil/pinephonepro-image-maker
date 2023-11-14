@@ -74,8 +74,8 @@ fi
 BOOTPART="${DEVICE_NODE}p1"
 ROOTPART="${DEVICE_NODE}p2"
 
-sudo mkfs.ext4 -F -L boot $BOOTPART # 1st partition = boot
-sudo mkfs.ext4 -F -L root $ROOTPART # 2nd partition = root
+sudo mkfs.ext4 -F -L boot $BOOTPART -O ^metadata_csum,^orphan_file # 1st partition = boot
+sudo mkfs.ext4 -F -L root $ROOTPART -O ^metadata_csum,^orphan_file # 2nd partition = root
 
 # Flashing rootFS
 echo -e "\e[1mFlashing rootFS...\e[0m"
